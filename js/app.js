@@ -84,9 +84,9 @@
     const day = new Date().getDay();
     const list = JADWAL[day];
     const slots = list
-      ? list.map(([t, n, sid]) => sid
-          ? `<a class="slot" href="#/kelas/7/${sid}"><span class="t">${t}</span><span class="n">${esc(n)}</span><span class="tag">${chaptersOf(7, sid).length} bab</span></a>`
-          : `<div class="slot off"><span class="t">${t}</span><span class="n">${esc(n)}</span></div>`).join("")
+      ? list.map(([t, n, sid], i) => sid
+          ? `<a class="slot" href="#/kelas/7/${sid}"><span class="t">${t || String(i + 1).padStart(2, "0")}</span><span class="n">${esc(n)}</span><span class="tag">${chaptersOf(7, sid).length} bab</span></a>`
+          : `<div class="slot off"><span class="t">${t || String(i + 1).padStart(2, "0")}</span><span class="n">${esc(n)}</span></div>`).join("")
       : `<p class="cond" style="font-size:30px;margin:0">${HARI[day]}. Libur.</p><p style="margin:6px 0 0;color:#C9D3DE">Kerjakan satu kuis aja biar otaknya tetap panas.</p><a class="pill lemon" style="align-self:flex-start;margin-top:12px" href="#/kelas/7">Pilih kuis</a>`;
 
     return `
@@ -187,7 +187,7 @@
         <p class="side">${g === 7 ? "Kelas Theo sekarang. Bab bertanda S1 masuk UAS semester ganjil." : g === 8 ? "Materi kelas 8 buat dicicil. Pelan-pelan aja." : "Materi kelas 9, termasuk bekal buat ujian akhir SMP."}</p>
       </div>
       <div class="tabs" role="group" aria-label="Filter semester">
-        ${[0, 1, 2].map((v) => `<button class="tab" data-sem="${v}" aria-pressed="${sem === v}">${v ? "Semester " + v : "Semua bab"}</button>`).join("")}
+        ${semTabs(sem, g, typeof sid === "string" ? sid : null)}
       </div>
       ${uasSem ? `<div class="callout"><p><b>UAS semester 1 udah dekat.</b> Tes campuran ambil 20 soal acak dari semua mapel bab S1. Kerjakan beberapa kali, soalnya beda-beda.</p><a class="pill lemon" href="#/tes/${g}/semua/uas1">Tes campuran UAS</a></div>` : `<div class="callout"><p><b>Tes campuran:</b> 20 soal acak dari semua mapel kelas ${g}. Cocok buat pemanasan sebelum ujian.</p><a class="pill lemon" href="#/tes/${g}/semua/campur">Mulai tes campuran</a></div>`}
       <div class="subjects">${cards}</div>
@@ -197,6 +197,12 @@
   // filter semester disimpan per sesi
   function sessionStorageGet(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
   function sessionStorageSet(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+  // tab semester dengan jumlah bab, biar kelihatan kalau filter sedang aktif
+  function semTabs(sem, g, sid) {
+    const subs = sid ? [sid] : SUBJECTS.map((s) => s.id);
+    const count = (v) => subs.reduce((a, s) => a + chaptersOf(g, s).filter((c) => !v || c.s === v).length, 0);
+    return [0, 1, 2].map((v) => `<button class="tab" data-sem="${v}" aria-pressed="${sem === v}">${v ? "Semester " + v : "Semua bab"} · ${count(v)}</button>`).join("");
+  }
   // tanda "kerjakan ulang" disimpan di memori juga, jaga-jaga sessionStorage diblokir
   let freshMem = null;
   const sessGet = (k) => sessionStorageGet(k) || (k === "fresh" ? freshMem : null);
@@ -236,7 +242,7 @@
       <div class="crumbs mono"><a href="#/">Beranda</a><span>/</span><a href="#/kelas/${g}">Kelas ${g}</a><span>/</span><span>${esc(s.name)}</span></div>
       <div class="pagehead"><h1>${esc(s.name)}</h1><p class="side mono">${s.full ? esc(s.full) + "<br>" : ""}Kelas ${g} · ${all.length} bab</p></div>
       <div class="tabs" role="group" aria-label="Filter semester">
-        ${[0, 1, 2].map((v) => `<button class="tab" data-sem="${v}" aria-pressed="${sem === v}">${v ? "Semester " + v : "Semua bab"}</button>`).join("")}
+        ${semTabs(sem, g, typeof sid === "string" ? sid : null)}
       </div>
       <div class="layout">
         <ol class="chapters">${items || `<li class="mono">Belum ada bab untuk semester ini.</li>`}</ol>
@@ -288,6 +294,8 @@
           <ul>${c.pts.map((p) => `<li>${p}</li>`).join("")}</ul>
           ${c.ex ? `<h2>Contoh</h2><div class="example"><span class="mono">Coba dulu sebelum lihat jawaban</span><div>${c.ex.q}</div>
             <button class="pill light reveal-btn" data-reveal>Lihat jawaban</button><div class="ans" hidden>${c.ex.a}</div></div>` : ""}
+          ${c.ex2 ? `<div class="example"><span class="mono">Contoh lain</span><div>${c.ex2.q}</div>
+            <button class="pill light reveal-btn" data-reveal>Lihat jawaban</button><div class="ans" hidden>${c.ex2.a}</div></div>` : ""}
           ${c.tip ? `<div class="tip"><span class="mono">Tips</span><br>${c.tip}</div>` : ""}
           <h2>Latihan</h2>
           ${latihanBlock(g, sid, c)}
@@ -507,14 +515,14 @@
     const days = [1, 2, 3, 4, 5].map((d) => `
       <div class="blob" style="${d === today ? "background:var(--ink)" : "background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)"};min-height:0;border-radius:24px;animation:none">
         <p class="cond" style="font-size:32px;margin:0 0 6px">${HARI[d]}${d === today ? ' <span class="stamp" style="font-size:11px">hari ini</span>' : ""}</p>
-        ${JADWAL[d].map(([t, n, sid]) => sid
-          ? `<a class="slot" href="#/kelas/7/${sid}"><span class="t" style="${d === today ? "" : "color:var(--sky-deep)"}">${t}</span><span class="n" style="font-size:20px">${esc(n)}</span></a>`
-          : `<div class="slot off"><span class="t">${t}</span><span class="n" style="font-size:20px">${esc(n)}</span></div>`).join("")}
+        ${JADWAL[d].map(([t, n, sid], i) => sid
+          ? `<a class="slot" href="#/kelas/7/${sid}"><span class="t" style="${d === today ? "" : "color:var(--sky-deep)"}">${t || String(i + 1).padStart(2, "0")}</span><span class="n" style="font-size:20px">${esc(n)}</span></a>`
+          : `<div class="slot off"><span class="t">${t || String(i + 1).padStart(2, "0")}</span><span class="n" style="font-size:20px">${esc(n)}</span></div>`).join("")}
       </div>`).join("");
     return `
     <section class="panel">
       <div class="crumbs mono"><a href="#/">Beranda</a><span>/</span><span>Jadwal</span></div>
-      <div class="pagehead"><h1>Jadwal 7F</h1><p class="side mono">Semester ganjil 2026/2027<br>Klik mapel untuk buka materinya</p></div>
+      <div class="pagehead"><h1>Jadwal 7F</h1><p class="side mono">${JADWAL_LABEL}<br>Klik mapel untuk buka materinya</p></div>
       <div class="subjects" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${days}</div>
     </section>`;
   }

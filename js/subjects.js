@@ -14,12 +14,39 @@ window.SUBJECTS = [
   { id: "pjok",    name: "PJOK",                code: "OR",  sym: "◎", full: "Pendidikan Jasmani, Olahraga, dan Kesehatan" }
 ];
 
-// Jadwal 7F Semester Ganjil 2026/2027. sid = id mapel (null = bukan mapel)
+// Jadwal 7F semester 1 dan 2 (jadwal baru). Format: [jam, nama, id mapel]. Jam kosong = urutan saja.
+window.JADWAL_LABEL = "Semester 1 dan 2";
 window.JADWAL = {
-  1: [ ["06.40", "Upacara", null], ["07.30", "PJOK", "pjok"], ["09.15", "Seni Budaya", "senbud"], ["10.25", "Seni Budaya", "senbud"], ["11.35", "BK", null], ["12.50", "Bahasa Indonesia", "indo"] ],
-  2: [ ["06.40", "Bakat Minat", null], ["07.30", "IPA", "ipa"], ["09.15", "TIK", "info"], ["10.25", "TIK", "info"], ["11.35", "PAI", "pai"], ["12.50", "PAI", "pai"] ],
-  3: [ ["06.40", "Literasi Numerasi", null], ["07.30", "Bahasa Inggris", "inggris"], ["08.40", "Bahasa Indonesia", "indo"], ["09.15", "Matematika", "mtk"], ["10.25", "PKN", "ppkn"], ["11.00", "IPS", "ips"], ["12.50", "PKN", "ppkn"] ],
-  4: [ ["06.40", "Adiwiyata Kamis Bersih", null], ["07.30", "IPA", "ipa"], ["08.40", "Matematika", "mtk"], ["10.25", "Bahasa Indonesia", "indo"], ["12.50", "IPS", "ips"] ],
-  5: [ ["06.40", "Religi", null], ["07.45", "Matematika", "mtk"], ["09.50", "Bahasa Inggris", "inggris"] ]
+  1: [ ["", "PJOK", "pjok"], ["", "Seni Budaya", "senbud"], ["", "BK", null], ["", "Bahasa Indonesia", "indo"] ],
+  2: [ ["", "IPA", "ipa"], ["", "TIK", "info"], ["", "PAI", "pai"] ],
+  3: [ ["", "Bahasa Inggris", "inggris"], ["", "Bahasa Indonesia", "indo"], ["", "Matematika", "mtk"], ["", "IPS", "ips"], ["", "PKN", "ppkn"] ],
+  4: [ ["", "IPA", "ipa"], ["", "Matematika", "mtk"], ["", "Bahasa Indonesia", "indo"], ["", "IPS", "ips"] ],
+  5: [ ["", "PKN", "ppkn"], ["", "Bahasa Inggris", "inggris"] ]
+};
+
+// Tambahan materi. Dipanggil dari file data tambahan (g7c.js, dst).
+//   add:   bab baru (objek bab lengkap, boleh pakai `after: "id-bab"` untuk menentukan posisi)
+//   more:  { idBab: { pts: [...], q: [...], ex2: {q, a}, s: 1 } } untuk menambah isi bab yang sudah ada
+//   order: daftar id bab untuk mengatur urutan akhir (opsional)
+window.EXT = function (g, sid, o) {
+  const list = (MATERI[g][sid] = MATERI[g][sid] || []);
+  const byId = (id) => list.find((c) => c.id === id);
+  Object.entries(o.more || {}).forEach(([id, m]) => {
+    const c = byId(id); if (!c) return;
+    if (m.pts) c.pts = c.pts.concat(m.pts);
+    if (m.q) c.q = c.q.concat(m.q);
+    if (m.ex2) c.ex2 = m.ex2;
+    if (m.s) c.s = m.s;
+    if (m.sum2) c.sum = c.sum + "\n" + m.sum2;
+  });
+  (o.add || []).forEach((c) => {
+    if (byId(c.id)) return;
+    const at = c.after ? list.findIndex((x) => x.id === c.after) : -1;
+    if (at >= 0) list.splice(at + 1, 0, c); else list.push(c);
+  });
+  if (o.order) list.sort((a, b) => {
+    const ia = o.order.indexOf(a.id), ib = o.order.indexOf(b.id);
+    return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
+  });
 };
 window.HARI = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
