@@ -1,0 +1,12 @@
+{
+  "name": "THEO — Ruang Belajar",
+  "short_name": "THEO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#8ED1FC",
+  "theme_color": "#8ED1FC",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
