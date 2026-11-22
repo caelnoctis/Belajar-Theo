@@ -189,6 +189,13 @@
       <div class="tabs" role="group" aria-label="Filter semester">
         ${semTabs(sem, g, typeof sid === "string" ? sid : null)}
       </div>
+      ${window.UAS && UAS[g] ? `<div class="uasbox">
+        ${burst({ seed: 9, size: 96, cls: "spin", style: "right:-24px;top:-30px" })}
+        <span class="mono">Post test dari kisi-kisi guru</span>
+        <h2 class="cond">Simulasi UAS</h2>
+        <p>Soalnya disusun dari kisi-kisi UAS yang dikasih guru, urut sesuai nomornya. Kerjakan seperti ujian beneran, nilai dan pembahasan muncul di akhir.</p>
+        <div class="uasgrid">${uasCards(g)}</div>
+      </div>` : ""}
       ${uasSem ? `<div class="callout"><p><b>UAS semester 1 udah dekat.</b> Tes campuran ambil 20 soal acak dari semua mapel bab S1. Kerjakan beberapa kali, soalnya beda-beda.</p><a class="pill lemon" href="#/tes/${g}/semua/uas1">Tes campuran UAS</a></div>` : `<div class="callout"><p><b>Tes campuran:</b> 20 soal acak dari semua mapel kelas ${g}. Cocok buat pemanasan sebelum ujian.</p><a class="pill lemon" href="#/tes/${g}/semua/campur">Mulai tes campuran</a></div>`}
       <div class="subjects">${cards}</div>
     </section>`;
@@ -260,6 +267,7 @@
             ${post ? `<div class="score-big">${post.score} ${delta !== null ? `<span class="delta ${delta < 0 ? "neg" : ""}">${delta >= 0 ? "+" : ""}${delta} dari pretest</span>` : ""}</div><p class="mono">${post.right}/${post.total} benar · ${fmtDate(post.at)}</p>` : ""}
             ${testButtons(g, sid, "post", post, "posttest")}
           </div>
+          ${uasOf(g, sid) ? `<div class="tc-uas">${uasCards(g, sid)}</div>` : ""}
           <p class="mono tc-note">Langkah 2: baca tiap bab dan kerjakan latihannya.</p>
         </aside>
       </div>
@@ -345,6 +353,13 @@
       storeKey = { type: "done", key: `${g}.${sid}.${c.id}` };
       build = () => shuffle(c.q).map((q) => prep(q, { sid, ch: c.t }));
       back = `#/kelas/${g}/${sid}/${c.id}`;
+    } else if (mode === "uas") {
+      const U = uasOf(g, sid); if (!U) return NotFound();
+      title = U.title; instant = false; hk = `U.${g}.${sid}`;
+      storeKey = { type: "test", key: `${g}.${sid}.uas`, keys: [] };
+      back = `#/kelas/${g}/${sid}`;
+      // urutan soal tetap sesuai nomor kisi-kisi, hanya opsi yang diacak
+      build = () => U.q.map((x, i) => prep([x[1], x[2], x[3], x[4]], { sid, ch: `No. ${i + 1} · ${x[0]}`, topic: x[0] }));
     } else {
       const kind = extra;
       if (!["pre", "post", "uas1", "campur"].includes(kind)) return NotFound();
@@ -361,7 +376,7 @@
         return pool.slice(0, sid === "semua" ? 20 : 10).map((p) => prep(p.raw, { sid: p.sid, ch: p.ch, key: p.key }));
       };
     }
-    const o = { instant, storeKey, back, g, sid, hk, title };
+    const o = { instant, storeKey, back, g, sid, hk, title, uas: mode === "uas" };
 
     // kerjakan ulang: tombol menaruh tanda "fresh" sebelum pindah halaman
     const fresh = sessGet("fresh") === hk;
@@ -388,14 +403,43 @@
       <div class="crumbs mono"><a href="#/kelas/${g}">Kelas ${g}</a><span>/</span>${sid !== "semua" ? `<a href="#/kelas/${g}/${sid}">${esc(s.name)}</a><span>/</span>` : ""}<span>${esc(title)}</span></div>
       <div class="pagehead"><h1>${esc(title)}</h1><p class="side mono">${esc(s.name)} · Kelas ${g}<br>${sub}</p></div>
     </section>
-    <section class="panel ice"><div class="quiz" id="quiz"></div></section>`;
+    <section class="panel ice"><div class="quiz" id="quiz"></div></section>
+    ${o.uas ? essaySection(uasOf(g, sid)) : ""}`;
+  }
+
+  function uasOf(g, sid) { return (window.UAS && UAS[g] && UAS[g][sid]) || null; }
+
+  // latihan esai: soal + contoh jawaban yang bisa dibuka-tutup
+  function essaySection(U) {
+    if (!U || !U.essays || !U.essays.length) return "";
+    return `<section class="panel paper"><div class="read" style="max-width:760px;margin:0 auto">
+      <h2>Latihan esai</h2>
+      <p>Materi sujud syukur dan sujud sahwi keluar sebagai soal esai. Jawab dulu di kertas atau dalam hati, baru buka contoh jawabannya.</p>
+      ${U.essays.map((e, i) => `<div class="example"><span class="mono">Esai ${i + 1}</span><div><b>${e.q}</b></div>
+        <button type="button" class="pill light reveal-btn" data-reveal>Lihat contoh jawaban</button><div class="ans" hidden>${e.a}</div></div>`).join("")}
+    </div></section>`;
+  }
+
+  function uasCards(g, only) {
+    if (!window.UAS || !UAS[g]) return "";
+    return Object.keys(UAS[g]).filter((sid) => !only || sid === only).map((sid) => {
+      const U = UAS[g][sid], s = subj(sid), hk = `U.${g}.${sid}`, go = `#/uas/${g}/${sid}`;
+      const rec = DB.tests[`${g}.${sid}.uas`];
+      const btn = DB.draft[hk] ? `<a class="pill lemon" href="${go}">Lanjutkan</a>`
+        : rec ? `<span class="btnrow"><a class="pill" href="${go}">Lihat hasil</a><button type="button" class="pill light" data-fresh="${hk}" data-go="${go}">Kerjakan ulang</button></span>`
+        : `<a class="pill" href="${go}">Mulai simulasi</a>`;
+      return `<div class="testcard uascard"><span class="mono">Kisi-kisi guru · ${U.q.length} soal${U.essays ? " + esai" : ""}</span>
+        <h3>${esc(s.name)}</h3>
+        ${rec ? `<div class="score-big">${rec.score}</div><p class="mono">${rec.right}/${rec.total} benar · ${fmtDate(rec.at)}</p>` : `<p>${esc(U.note)}</p>`}
+        ${btn}</div>`;
+    }).join("");
   }
 
   function runQuiz(root, qs, o, savedAns, savedI) {
     if (!root) return;
     const ans = Array.isArray(savedAns) && savedAns.length === qs.length ? savedAns.slice() : new Array(qs.length).fill(-1);
     let i = Math.min(Math.max(savedI | 0, 0), qs.length - 1);
-    let busy = false;
+    let busy = false, navOpen = false;
     const L = "ABCDE";
     const keep = () => { DB.draft[o.hk] = { qs, ans, i, at: Date.now() }; save(); };
     const toTop = () => {
@@ -409,6 +453,8 @@
       root.innerHTML = `
         <div class="qhead mono"><span>Soal ${i + 1} / ${qs.length}</span><span class="qch">${o.sid === "semua" ? esc(subj(q.meta.sid).name) + " · " : ""}${esc(q.meta.ch)}</span></div>
         <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${qs.length}" aria-valuenow="${answered}"><i style="width:${(answered / qs.length) * 100}%"></i></div>
+        ${qs.length > 15 ? `<details class="qgrid" ${navOpen ? "open" : ""}><summary class="mono">Daftar soal · ${answered}/${qs.length} terjawab</summary>
+          <div class="qgrid-in">${qs.map((_, k) => `<button type="button" data-jump="${k}" class="${ans[k] >= 0 ? "done" : ""}${k === i ? " cur" : ""}" aria-label="Soal ${k + 1}${ans[k] >= 0 ? ", sudah dijawab" : ""}">${k + 1}</button>`).join("")}</div></details>` : ""}
         <div class="qcard">
           <div class="qtext">${q.text}</div>
           <div class="opts">${q.opts.map((op, k) => {
@@ -434,6 +480,11 @@
           setTimeout(() => { busy = false; i++; keep(); draw(); toTop(); }, 280);
         }
       }));
+      const grid = $(".qgrid", root);
+      if (grid) {
+        grid.addEventListener("toggle", () => { navOpen = grid.open; });
+        $$("[data-jump]", grid).forEach((b) => b.addEventListener("click", () => { if (busy) return; i = Number(b.dataset.jump); keep(); draw(); toTop(); }));
+      }
       $("[data-prev]", root).addEventListener("click", () => { if (busy || i === 0) return; i--; keep(); draw(); toTop(); });
       $("[data-next]", root).addEventListener("click", () => {
         if (busy || ans[i] < 0) return;
@@ -491,6 +542,8 @@
           <a class="pill light" href="${o.back}">Kembali</a>
           ${wrong ? `<button type="button" class="pill light" data-only-wrong>Lihat yang salah (${wrong})</button>` : ""}
         </div>
+        ${o.uas && wrong ? `<div class="savedbox" style="text-align:left;margin-top:20px"><span class="mono">Topik kisi-kisi yang perlu diulang</span>
+          <ul class="topics">${[...new Set(h.items.filter((x) => !x.ok).map((x) => x.ch.replace(/^No\. \d+ · /, "")))].map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>` : ""}
         <div class="review">${h.items.map((x, k) => `
           <div class="it ${x.ok ? "ok" : "no"}"><span class="mono">${k + 1}. ${x.ok ? "Benar" : "Salah"} · ${esc(x.ch)}</span>
             <p><b>${x.t}</b></p>
@@ -537,7 +590,8 @@
       const d = pre && post ? post.score - pre.score : null;
       rows.push(`<tr><td>${g}</td><td><a href="#/kelas/${g}/${s.id}">${esc(s.name)}</a></td><td>${p}%</td><td>${pre ? pre.score : "–"}</td><td>${post ? post.score : "–"}</td><td>${d === null ? "–" : `<span class="delta ${d < 0 ? "neg" : ""}">${d >= 0 ? "+" : ""}${d}</span>`}</td></tr>`);
     }));
-    const mixed = Object.entries(DB.tests).filter(([k]) => k.includes(".semua.")).map(([k, v]) => `<tr><td>${k.split(".")[0]}</td><td>${k.endsWith("uas1") ? "Tes campuran UAS S1" : "Tes campuran"}</td><td colspan="4">${v.score} (${v.right}/${v.total})</td></tr>`).join("");
+    const uasRows = Object.entries(DB.tests).filter(([k]) => k.endsWith(".uas")).map(([k, v]) => { const [g, sid] = k.split("."); const s = subj(sid); return `<tr><td>${g}</td><td><a href="#/uas/${g}/${sid}">Simulasi UAS ${esc(s ? s.name : sid)}</a></td><td colspan="4">${v.score} (${v.right}/${v.total}) · ${fmtDate(v.at)}</td></tr>`; }).join("");
+    const mixed = uasRows + Object.entries(DB.tests).filter(([k]) => k.includes(".semua.")).map(([k, v]) => `<tr><td>${k.split(".")[0]}</td><td>${k.endsWith("uas1") ? "Tes campuran UAS S1" : "Tes campuran"}</td><td colspan="4">${v.score} (${v.right}/${v.total})</td></tr>`).join("");
     return `
     <section class="panel">
       <div class="crumbs mono"><a href="#/">Beranda</a><span>/</span><span>Rapor</span></div>
@@ -608,6 +662,7 @@
       else html = Grade(g);
     } else if (p[0] === "latihan") html = QuizPage("latihan", +p[1], p[2], p[3]);
     else if (p[0] === "tes") html = QuizPage("tes", +p[1], p[2], p[3]);
+    else if (p[0] === "uas") html = QuizPage("uas", +p[1], p[2]);
     else if (p[0] === "jadwal") html = Jadwal();
     else if (p[0] === "rapor") html = Rapor();
     else html = NotFound();

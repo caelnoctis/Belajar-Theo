@@ -1,0 +1,186 @@
+// SIMULASI UAS KELAS 7 — disusun dari kisi-kisi guru (semester 1).
+// Format soal: [topik kisi-kisi, soal, [opsi benar, ...opsi lain], indexBenar, pembahasan]
+window.UAS = window.UAS || {};
+UAS[7] = {
+  indo: {
+    title: "Simulasi UAS Bahasa Indonesia",
+    note: "45 soal, urut sesuai nomor kisi-kisi dari guru.",
+    q: [
+      ["Objek teks deskripsi", "Objek yang paling tepat dijadikan teks deskripsi adalah …", ["Pantai Kuta di Bali", "Cara membuat kue bolu", "Pendapat tentang ujian daring", "Langkah menanam cabai"], 0, "Teks deskripsi menggambarkan objek (tempat, orang, benda, hewan) secara rinci."],
+      ["Kata ganti orang", "“Kemarin ___ pergi ke perpustakaan bersama adikku.”\nKata ganti orang pertama tunggal yang tepat adalah …", ["aku", "mereka", "kalian", "beliau"], 0, "Aku/saya = orang pertama tunggal. Adikku menunjukkan si penutur sendiri."],
+      ["Konjungsi", "“Pantai itu indah, ___ banyak sampah plastik di pinggirnya.”\nKonjungsi yang tepat adalah …", ["tetapi", "karena", "sehingga", "kemudian"], 0, "Dua keadaan berlawanan memakai konjungsi pertentangan: tetapi."],
+      ["Pancaindra", "“Suara deburan ombak terdengar keras dari kejauhan.”\nKalimat tersebut melibatkan indra …", ["pendengaran", "penglihatan", "penciuman", "peraba"], 0, "Suara dan terdengar = indra pendengaran."],
+      ["Struktur teks deskripsi", "Bagian teks deskripsi yang berisi gambaran umum atau pengenalan objek disebut …", ["identifikasi", "deskripsi bagian", "simpulan", "orientasi"], 0, "Struktur: identifikasi → deskripsi bagian → simpulan/kesan."],
+      ["Unsur intrinsik", "Berikut yang termasuk unsur intrinsik cerita adalah …", ["tema", "latar belakang pengarang", "nilai budaya masyarakat", "riwayat hidup penulis"], 0, "Unsur intrinsik ada di dalam cerita: tema, tokoh, alur, latar, sudut pandang, amanat."],
+      ["Kaidah kebahasaan teks deskripsi", "Kaidah kebahasaan teks deskripsi adalah …", ["banyak memakai kata sifat dan kata yang melibatkan pancaindra", "banyak memakai kalimat perintah", "memakai konjungsi urutan langkah", "memakai kata bilangan takaran bahan"], 0, "Teks deskripsi menggambarkan, jadi kaya kata sifat dan detail pancaindra."],
+      ["Struktur teks deskripsi", "(1) Kebun Raya Bogor adalah kebun botani di tengah Kota Bogor.\n(2) Di bagian depan berjajar pohon kenari yang tinggi. Di tengahnya ada kolam teratai raksasa.\n(3) Berkunjung ke sana membuat hati tenang.\n\nBagian (2) termasuk struktur …", ["deskripsi bagian", "identifikasi", "simpulan/kesan", "orientasi"], 0, "Bagian (2) merinci bagian-bagian objek."],
+      ["Pengertian teks fantasi", "Teks fantasi adalah …", ["cerita yang mengandung unsur keajaiban atau khayalan yang tidak terjadi di dunia nyata", "teks berisi langkah-langkah melakukan sesuatu", "teks yang melaporkan hasil pengamatan", "teks berisi pendapat penulis"], 0, "Ciri utama teks fantasi: keajaiban, misteri, dunia rekaan."],
+      ["Tanda baca", "Penggunaan tanda koma yang tepat terdapat pada kalimat …", ["Ibu membeli sayur, buah, dan ikan.", "Ibu membeli sayur buah, dan ikan.", "Ibu, membeli sayur buah dan ikan.", "Ibu membeli, sayur, buah dan ikan."], 0, "Koma dipakai di antara unsur perincian."],
+      ["Latar tempat", "“Sepulang sekolah, Raka menemukan kunci emas di bawah pohon beringin di halaman belakang rumah nenek.”\nLatar tempat dalam kutipan tersebut adalah …", ["halaman belakang rumah nenek", "sepulang sekolah", "kunci emas", "Raka"], 0, "Latar tempat menjawab di mana."],
+      ["Latar waktu", "“Malam itu, saat bulan purnama bersinar, pintu lemari tua di kamar Tia tiba-tiba bercahaya.”\nLatar waktu dalam kutipan tersebut adalah …", ["malam saat bulan purnama", "lemari tua", "kamar Tia", "pintu bercahaya"], 0, "Latar waktu menjawab kapan."],
+      ["Sinonim", "Sinonim kata “elok” adalah …", ["indah", "buruk", "besar", "jauh"], 0, "Elok = indah, cantik."],
+      ["Unsur intrinsik", "Cerita yang memakai kata “aku” sebagai pencerita menggunakan sudut pandang …", ["orang pertama", "orang kedua", "orang ketiga serba tahu", "orang ketiga pengamat"], 0, "Aku = orang pertama."],
+      ["Ciri puisi", "Ciri puisi adalah …", ["bahasanya padat dan indah serta tersusun atas bait dan larik", "ditulis dalam paragraf panjang", "selalu berisi dialog antartokoh", "berisi langkah-langkah yang urut"], 0, "Puisi tersusun dari bait dan larik dengan bahasa yang padat."],
+      ["Pengertian pantun", "Pantun adalah …", ["puisi lama empat baris bersajak a-b-a-b, dua baris sampiran dan dua baris isi", "puisi lama dua baris bersajak a-a", "puisi baru yang bebas jumlah barisnya", "cerita fiksi singkat"], 0, "Definisi pantun."],
+      ["Ciri-ciri pantun", "Yang BUKAN ciri pantun adalah …", ["semua baris merupakan isi", "tiap bait terdiri dari empat baris", "bersajak a-b-a-b", "baris pertama dan kedua adalah sampiran"], 0, "Semua baris berisi isi adalah ciri syair."],
+      ["Ciri-ciri gurindam", "Ciri gurindam adalah …", ["dua baris sebait, bersajak a-a, baris pertama sebab dan baris kedua akibat", "empat baris sebait, bersajak a-b-a-b", "empat baris sebait, semua baris isi", "bebas jumlah baris dan rima"], 0, "Gurindam: 2 baris, a-a, syarat lalu akibat."],
+      ["Ciri-ciri syair", "Ciri syair adalah …", ["empat baris sebait, bersajak a-a-a-a, semua baris merupakan isi", "dua baris sebait bersajak a-a", "empat baris bersajak a-b-a-b dengan sampiran", "tidak memiliki rima"], 0, "Syair biasanya bercerita atau menasihati."],
+      ["Sampiran", "Pergi ke pasar membeli tomat,\nTomat merah di ujung jalan.\nRajinlah belajar setiap saat,\nSupaya nanti tidak ketinggalan.\n\nSampiran pantun tersebut ditunjukkan oleh baris …", ["pertama dan kedua", "ketiga dan keempat", "pertama dan ketiga", "kedua dan keempat"], 0, "Sampiran = baris 1–2."],
+      ["Isi pantun", "Pergi ke pasar membeli tomat,\nTomat merah di ujung jalan.\nRajinlah belajar setiap saat,\nSupaya nanti tidak ketinggalan.\n\nIsi pantun tersebut adalah …", ["ajakan rajin belajar agar tidak ketinggalan", "membeli tomat di pasar", "tomat merah di ujung jalan", "pergi ke pasar setiap saat"], 0, "Isi = baris 3–4."],
+      ["Sinonim", "Kata “cerdik” bersinonim dengan …", ["pandai", "bodoh", "malas", "lambat"], 0, "Cerdik = pandai, pintar."],
+      ["Pengertian gurindam", "Gurindam adalah …", ["puisi lama dua baris sebait yang bersajak a-a dan berisi nasihat", "puisi lama empat baris yang bercerita", "puisi baru tanpa aturan", "lagu daerah"], 0, "Contoh terkenal: Gurindam Dua Belas karya Raja Ali Haji."],
+      ["Rima pantun", "Rima pantun yang benar adalah …", ["a-b-a-b", "a-a-a-a", "a-a", "a-b-b-a"], 0, "Rima silang."],
+      ["Watak tokoh", "“Meski lelah sepulang sekolah, Dimas tetap membantu nenek membawa belanjaan menyeberang jalan tanpa meminta imbalan.”\nWatak Dimas adalah …", ["suka menolong", "sombong", "pemalas", "pemarah"], 0, "Watak terlihat dari tindakan tokoh."],
+      ["Pengertian teks prosedur", "Teks prosedur adalah …", ["teks yang berisi langkah-langkah untuk melakukan sesuatu", "teks yang menggambarkan objek", "teks yang menceritakan khayalan", "teks berisi pendapat dan argumen"], 0, "Contohnya resep dan petunjuk pemakaian."],
+      ["Kaidah kebahasaan teks prosedur", "Kaidah kebahasaan teks prosedur adalah …", ["memakai kalimat perintah, konjungsi temporal, dan kata kerja tindakan", "banyak memakai kata sifat dan majas", "banyak memakai dialog", "memakai sudut pandang orang pertama"], 0, "Ciri khas teks prosedur."],
+      ["Kalimat perintah", "Ciri kalimat perintah adalah …", ["berisi suruhan agar orang lain melakukan sesuatu", "berisi pertanyaan", "berisi pemberitahuan", "berisi ungkapan kagum"], 0, "Kalimat imperatif."],
+      ["Contoh kalimat imperatif", "Kalimat berikut yang merupakan kalimat imperatif adalah …", ["Tuangkan air panas ke dalam gelas.", "Air di gelas itu masih panas.", "Apakah airnya sudah panas?", "Wah, airnya panas sekali!"], 0, "Ada kata kerja perintah “tuangkan”."],
+      ["Contoh teks prosedur", "Judul berikut yang merupakan teks prosedur adalah …", ["Cara Membuat Pisang Goreng", "Keindahan Danau Toba", "Legenda Malin Kundang", "Laporan Pengamatan Kupu-Kupu"], 0, "Judul teks prosedur sering diawali “cara”."],
+      ["Konjungsi temporal", "Konjungsi temporal yang sering dipakai dalam teks prosedur adalah …", ["setelah itu", "tetapi", "karena", "atau"], 0, "Konjungsi temporal menunjukkan urutan waktu."],
+      ["Ciri-ciri teks prosedur", "Ciri teks prosedur adalah …", ["berisi langkah-langkah yang urut untuk mencapai tujuan", "berisi cerita dengan konflik", "berisi gambaran objek secara rinci", "berisi pendapat pro dan kontra"], 0, "Urutan langkah penting."],
+      ["Struktur teks prosedur", "Struktur teks prosedur yang tepat adalah …", ["tujuan – bahan dan alat – langkah-langkah", "orientasi – komplikasi – resolusi", "identifikasi – deskripsi bagian – simpulan", "tesis – argumentasi – penegasan ulang"], 0, "Penutup kadang ada, kadang tidak."],
+      ["Jenis teks prosedur", "Teks prosedur yang langkahnya boleh tidak berurutan, misalnya cara menjaga kesehatan, disebut prosedur …", ["protokol", "sederhana", "kompleks", "naratif"], 0, "Jenis: sederhana, kompleks, protokol."],
+      ["Struktur teks prosedur", "Cara Membuat Teh Manis\nBahan: teh celup, gula, air panas.\nLangkah: 1) Masukkan teh celup ke gelas. 2) Tuang air panas. 3) Tambahkan gula dan aduk.\n\nBagian “Bahan: teh celup, gula, air panas” termasuk struktur …", ["bahan dan alat", "tujuan", "langkah-langkah", "penutup"], 0, "Bagian yang berisi keperluan."],
+      ["Ciri kebahasaan teks prosedur", "Kata kerja yang banyak digunakan dalam teks prosedur adalah …", ["kata kerja tindakan seperti potong, aduk, dan tuang", "kata kerja mental seperti merasa dan berpikir", "kata kerja relasional seperti adalah dan merupakan", "kata kerja pasif dalam cerita"], 0, "Kata kerja material/tindakan."],
+      ["Teks prosedur", "Tujuan teks prosedur adalah …", ["memberi petunjuk cara melakukan sesuatu dengan benar", "menghibur pembaca", "menggambarkan objek", "melaporkan hasil pengamatan"], 0, "Supaya pembaca berhasil melakukan sesuatu."],
+      ["Melengkapi teks prosedur", "Cara Membuat Jus Alpukat\n1. Belah alpukat dan ambil dagingnya.\n2. Masukkan daging alpukat ke blender.\n3. …\n4. Tuang jus ke gelas dan sajikan.\n\nLangkah yang tepat untuk nomor 3 adalah …", ["Tambahkan susu, gula, dan es, lalu blender sampai halus.", "Siapkan gelas di atas meja.", "Belah alpukat menjadi dua.", "Cuci blender setelah dipakai."], 0, "Langkah 3 harus menghubungkan langkah 2 dan 4."],
+      ["Prosedur menyalakan TV", "Langkah pertama menyalakan televisi adalah …", ["mencolokkan kabel TV ke stopkontak", "menekan tombol pindah saluran", "mengatur volume suara", "memilih saluran favorit"], 0, "TV harus terhubung listrik dulu."],
+      ["Struktur teks prosedur", "Bagian teks prosedur yang berisi urutan cara melakukan sesuatu disebut …", ["langkah-langkah", "tujuan", "bahan", "simpulan"], 0, "Inti teks prosedur."],
+      ["Kalimat langsung dan tidak langsung", "“Aku akan datang besok,” kata Rina.\nKalimat tidak langsung yang tepat adalah …", ["Rina mengatakan bahwa dia akan datang besok.", "Rina berkata, “Dia akan datang besok.”", "“Rina akan datang besok,” kataku.", "Rina berkata, “Aku datang.”"], 0, "Kalimat tidak langsung tanpa tanda petik, kata ganti berubah (aku → dia), sering memakai “bahwa”."],
+      ["Struktur teks prosedur", "Judul seperti “Cara Menanam Cabai di Polybag” termasuk struktur …", ["tujuan", "langkah-langkah", "bahan dan alat", "penutup"], 0, "Tujuan biasanya berupa judul."],
+      ["Teks prosedur membuat sesuatu", "Cara membuat layang-layang:\n(1) Tempel kertas pada kerangka.\n(2) Ikat dua bilah bambu membentuk tanda tambah.\n(3) Pasang tali kendali.\n(4) Siapkan bambu, kertas, lem, dan benang.\n\nUrutan yang benar adalah …", ["4 – 2 – 1 – 3", "2 – 4 – 1 – 3", "4 – 1 – 2 – 3", "1 – 2 – 3 – 4"], 0, "Siapkan bahan, buat kerangka, tempel kertas, pasang tali."],
+      ["Melengkapi pantun", "Buah mangga buah kedondong,\nDibeli ibu di pasar baru.\n…\nJangan lupa hormati guru.\n\nBaris ketiga yang tepat adalah …", ["Kalau belajar jangan bengong,", "Belajar rajin setiap hari,", "Pergi sekolah naik sepeda,", "Ilmu dicari sampai jauh,"], 0, "Rima a-b-a-b: kedondong – bengong, baru – guru."],
+      ["Mencari amanat", "Kancil yang sombong mengejek siput karena berjalan lambat. Ia menantang siput berlomba. Di tengah jalan Kancil tertidur karena yakin pasti menang. Saat ia bangun, siput sudah sampai di garis akhir.\n\nAmanat cerita tersebut adalah …", ["Jangan sombong dan meremehkan orang lain.", "Kancil adalah hewan yang cerdik.", "Siput berjalan sangat lambat.", "Tidur siang itu penting."], 0, "Amanat = pesan moral yang bisa diambil."]
+    ]
+  },
+
+  pai: {
+    title: "Simulasi UAS PAI",
+    note: "45 soal pilihan ganda dari 5 materi kisi-kisi, plus latihan esai sujud syukur dan sujud sahwi.",
+    q: [
+      ["Al-Qur’an dan Sunnah", "Al-Qur’an berfungsi sebagai huda bagi manusia. Huda artinya …", ["petunjuk", "pembeda", "obat", "penjelas hukum waris"], 0, "Al-Qur’an adalah petunjuk (huda) hidup manusia."],
+      ["Al-Qur’an dan Sunnah", "Al-Qur’an disebut Al-Furqan karena berfungsi sebagai …", ["pembeda antara yang hak dan yang batil", "penyembuh penyakit", "penghibur hati", "kitab sejarah"], 0, "Furqan = pembeda."],
+      ["Al-Qur’an dan Sunnah", "Kedudukan Sunnah (hadis) dalam Islam adalah …", ["sumber hukum Islam kedua setelah Al-Qur’an", "sumber hukum pertama", "sumber hukum ketiga setelah ijmak", "bukan sumber hukum"], 0, "Urutan: Al-Qur’an, Sunnah, ijtihad (ijmak, qiyas)."],
+      ["Al-Qur’an dan Sunnah", "Tata cara salat lima waktu dijelaskan rinci oleh Nabi. Ini menunjukkan fungsi Sunnah sebagai …", ["penjelas (bayan) ayat Al-Qur’an yang masih umum", "pengganti Al-Qur’an", "penghapus ayat Al-Qur’an", "cerita sejarah"], 0, "Al-Qur’an memerintahkan salat, Sunnah menjelaskan caranya."],
+      ["Al-Qur’an dan Sunnah", "Sunnah yang berupa perbuatan Nabi Muhammad saw. disebut sunnah …", ["fi’liyah", "qauliyah", "taqririyah", "hammiyah"], 0, "Qauliyah = ucapan, fi’liyah = perbuatan, taqririyah = ketetapan/persetujuan."],
+      ["Al-Qur’an dan Sunnah", "Q.S. An-Nisa’ ayat 59 memerintahkan orang beriman untuk taat kepada …", ["Allah, Rasul, dan ulil amri", "orang tua saja", "teman sebaya", "orang kaya"], 0, "Isi pokok An-Nisa’: 59."],
+      ["Al-Qur’an dan Sunnah", "Menurut Q.S. An-Nisa’ ayat 59, jika terjadi perselisihan maka harus dikembalikan kepada …", ["Al-Qur’an dan Sunnah", "pendapat terbanyak", "adat istiadat", "orang yang paling tua"], 0, "Kembalikan kepada Allah (Al-Qur’an) dan Rasul (Sunnah)."],
+      ["Al-Qur’an dan Sunnah", "Q.S. An-Nahl ayat 64 menjelaskan bahwa Al-Qur’an diturunkan kepada Nabi Muhammad agar …", ["beliau menjelaskan apa yang diperselisihkan, serta menjadi petunjuk dan rahmat bagi orang beriman", "beliau menjadi raja", "manusia tidak perlu belajar", "orang kafir menjadi kaya"], 0, "Isi pokok An-Nahl: 64."],
+      ["Al-Qur’an dan Sunnah", "Contoh penerapan Al-Qur’an dan Sunnah dalam kehidupan sehari-hari adalah …", ["menyelesaikan perselisihan dengan musyawarah sesuai tuntunan agama", "membaca Al-Qur’an hanya saat lomba", "mengikuti tren tanpa memilah", "menyimpan Al-Qur’an tanpa dibaca"], 0, "Al-Qur’an dan Sunnah dijadikan pedoman dalam bersikap."],
+
+      ["Asmaul Husna", "Al-‘Alim artinya …", ["Allah Maha Mengetahui", "Allah Maha Mendengar", "Allah Maha Melihat", "Allah Maha Pengasih"], 0, "Al-‘Alim."],
+      ["Asmaul Husna", "Al-Khabir artinya …", ["Allah Maha Teliti", "Allah Maha Kuasa", "Allah Maha Pemaaf", "Allah Maha Kaya"], 0, "Mengetahui sampai hal yang paling detail dan tersembunyi."],
+      ["Asmaul Husna", "As-Sami’ artinya …", ["Allah Maha Mendengar", "Allah Maha Melihat", "Allah Maha Mengetahui", "Allah Maha Teliti"], 0, "As-Sami’."],
+      ["Asmaul Husna", "Al-Basir artinya …", ["Allah Maha Melihat", "Allah Maha Mendengar", "Allah Maha Hidup", "Allah Maha Agung"], 0, "Al-Basir."],
+      ["Asmaul Husna", "Theo rajin belajar dan mencari ilmu. Perilaku ini meneladani Asmaul Husna …", ["Al-‘Alim", "As-Sami’", "Al-Basir", "Al-Khabir"], 0, "Meneladani Allah Yang Maha Mengetahui dengan menuntut ilmu."],
+      ["Asmaul Husna", "Selalu menjaga ucapan karena yakin Allah mendengar semua perkataan adalah wujud iman kepada …", ["As-Sami’", "Al-Basir", "Al-‘Alim", "Al-Khabir"], 0, "As-Sami’."],
+      ["Asmaul Husna", "Tidak menyontek walaupun pengawas sedang keluar kelas adalah wujud iman kepada …", ["Al-Basir", "As-Sami’", "Al-Khabir", "Al-‘Alim"], 0, "Allah Maha Melihat."],
+      ["Asmaul Husna", "Mengerjakan tugas dengan teliti dan cermat meneladani Asmaul Husna …", ["Al-Khabir", "Al-Basir", "As-Sami’", "Al-‘Alim"], 0, "Al-Khabir = Maha Teliti."],
+      ["Asmaul Husna", "Perbedaan sifat “mendengar” Allah dengan manusia adalah …", ["Allah mendengar tanpa batas dan tanpa alat, manusia terbatas", "Allah dan manusia sama-sama terbatas", "Allah butuh telinga untuk mendengar", "manusia mendengar lebih baik"], 0, "Sifat Allah sempurna, tidak serupa makhluk."],
+
+      ["Salat dan Zikir", "Makna menghadirkan salat dalam kehidupan adalah …", ["nilai salat terlihat dalam perilaku sehari-hari", "salat hanya dilakukan saat ada waktu luang", "salat cukup gerakannya saja", "salat hanya di masjid"], 0, "Salat yang khusyuk membekas pada akhlak."],
+      ["Salat dan Zikir", "Q.S. Al-‘Ankabut ayat 45 menjelaskan bahwa salat dapat …", ["mencegah perbuatan keji dan mungkar", "membuat cepat kaya", "menggantikan puasa", "menghapus kewajiban zakat"], 0, "Hubungan salat dengan akhlak."],
+      ["Salat dan Zikir", "Hikmah zikir menurut Q.S. Ar-Ra’d ayat 28 adalah …", ["hati menjadi tenang", "badan menjadi kuat", "harta bertambah otomatis", "terkenal di masyarakat"], 0, "Dengan mengingat Allah hati menjadi tenteram."],
+      ["Salat dan Zikir", "Bacaan “Subhanallah” disebut …", ["tasbih", "tahmid", "takbir", "tahlil"], 0, "Tasbih = Maha Suci Allah."],
+      ["Salat dan Zikir", "Bacaan “Alhamdulillah” disebut …", ["tahmid", "tasbih", "takbir", "istigfar"], 0, "Tahmid = segala puji bagi Allah."],
+      ["Salat dan Zikir", "Bacaan “La ilaha illallah” disebut …", ["tahlil", "takbir", "tahmid", "tasbih"], 0, "Tahlil."],
+      ["Salat dan Zikir", "Bacaan “Astaghfirullahal ‘azim” berisi …", ["permohonan ampun kepada Allah", "pujian kepada Allah", "pengagungan Allah", "doa sebelum makan"], 0, "Istigfar."],
+      ["Salat dan Zikir", "Contoh penerapan nilai salat dalam kehidupan sehari-hari adalah …", ["disiplin waktu, karena salat dilakukan tepat waktu", "datang terlambat ke sekolah", "berbohong kepada teman", "malas membersihkan kelas"], 0, "Salat melatih disiplin, kebersihan, dan kejujuran."],
+      ["Salat dan Zikir", "Zikir yang dilakukan dengan mengingat Allah dalam hati disebut zikir …", ["qalbi (hati)", "lisan", "jahr", "fi’li"], 0, "Zikir bisa dengan hati, lisan, dan perbuatan."],
+
+      ["Sujud syukur, sahwi, tilawah", "Sujud syukur dilakukan karena …", ["memperoleh nikmat atau terhindar dari musibah", "lupa jumlah rakaat salat", "membaca atau mendengar ayat sajdah", "terlambat salat"], 0, "Sebab sujud syukur."],
+      ["Sujud syukur, sahwi, tilawah", "Sujud sahwi dilakukan karena …", ["lupa atau ada kekurangan dalam salat", "mendapat nikmat", "mendengar ayat sajdah", "selesai membaca Al-Qur’an"], 0, "Sahwi = lupa."],
+      ["Sujud syukur, sahwi, tilawah", "Sujud tilawah dilakukan karena …", ["membaca atau mendengar ayat sajdah", "lulus ujian", "lupa tasyahud awal", "terhindar dari kecelakaan"], 0, "Tilawah = bacaan."],
+      ["Sujud syukur, sahwi, tilawah", "Theo mendapat kabar dirinya juara lomba. Sujud yang dianjurkan adalah sujud …", ["syukur", "sahwi", "tilawah", "salat"], 0, "Mendapat nikmat."],
+      ["Sujud syukur, sahwi, tilawah", "Imam lupa tidak duduk tasyahud awal. Sebelum salam, imam dan makmum melakukan sujud …", ["sahwi", "syukur", "tilawah", "tobat"], 0, "Menutup kekurangan dalam salat."],
+      ["Sujud syukur, sahwi, tilawah", "Sujud sahwi dilakukan sebanyak …", ["dua kali sujud", "satu kali sujud", "tiga kali sujud", "empat kali sujud"], 0, "Dua sujud dengan duduk di antaranya."],
+      ["Sujud syukur, sahwi, tilawah", "Bacaan sujud sahwi “Subhana man la yanamu wa la yashu” artinya …", ["Maha Suci Allah yang tidak tidur dan tidak lupa", "Maha Suci Allah Yang Maha Tinggi", "Segala puji bagi Allah", "Allah Maha Besar"], 0, "Bacaan khas sujud sahwi."],
+      ["Sujud syukur, sahwi, tilawah", "Sujud syukur dilakukan …", ["di luar salat dengan satu kali sujud", "di dalam salat setelah rukuk", "dua kali sujud sebelum salam", "hanya saat salat Jumat"], 0, "Ketentuan sujud syukur."],
+      ["Sujud syukur, sahwi, tilawah", "Hikmah sujud syukur adalah …", ["menjauhkan dari sifat sombong dan mengingat bahwa nikmat datang dari Allah", "agar salat lebih cepat", "agar tidak perlu salat wajib", "agar dipuji orang lain"], 0, "Rendah hati dan bersyukur."],
+
+      ["Bani Umayyah", "Pendiri Dinasti Bani Umayyah adalah …", ["Muawiyah bin Abu Sufyan", "Umar bin Abdul Aziz", "Abdul Malik bin Marwan", "Ali bin Abi Thalib"], 0, "Tahun 661 M (41 H)."],
+      ["Bani Umayyah", "Pusat pemerintahan Bani Umayyah berada di …", ["Damaskus", "Baghdad", "Madinah", "Kairo"], 0, "Damaskus, Suriah."],
+      ["Bani Umayyah", "Khalifah Bani Umayyah yang terkenal adil, bijaksana, dan sederhana adalah …", ["Umar bin Abdul Aziz", "Yazid bin Muawiyah", "Marwan bin Muhammad", "Hisyam bin Abdul Malik"], 0, "Sering disebut khalifah kelima Khulafaur Rasyidin."],
+      ["Bani Umayyah", "Masjid Umayyah di Damaskus dibangun pada masa khalifah …", ["Al-Walid bin Abdul Malik", "Muawiyah bin Abu Sufyan", "Umar bin Abdul Aziz", "Yazid bin Muawiyah"], 0, "Al-Walid juga memperluas wilayah Islam."],
+      ["Bani Umayyah", "Panglima yang membawa Islam masuk ke Spanyol (Andalusia) adalah …", ["Tariq bin Ziyad", "Khalid bin Walid", "Salahuddin al-Ayyubi", "Amr bin Ash"], 0, "Tahun 711 M. Namanya diabadikan jadi Gibraltar (Jabal Tariq)."],
+      ["Bani Umayyah", "Kemajuan pada masa Bani Umayyah antara lain …", ["bahasa Arab menjadi bahasa resmi dan dicetak mata uang Islam (dinar)", "ditemukannya mesin cetak", "penemuan listrik", "berdirinya kerajaan Majapahit"], 0, "Terjadi pada masa Abdul Malik bin Marwan."],
+      ["Bani Umayyah", "Salah satu faktor kemunduran Bani Umayyah adalah …", ["perebutan kekuasaan di keluarga dan gaya hidup mewah para khalifah", "terlalu banyak ulama", "rakyat terlalu makmur", "wilayahnya terlalu kecil"], 0, "Ditambah konflik dengan golongan yang tidak puas."],
+      ["Bani Umayyah", "Dinasti Bani Umayyah di Damaskus runtuh pada tahun 750 M dan digantikan oleh …", ["Bani Abbasiyah", "Turki Usmani", "Bani Fatimiyah", "Khulafaur Rasyidin"], 0, "Abbasiyah memindahkan pusat pemerintahan ke Baghdad."],
+      ["Bani Umayyah", "Teladan dari Umar bin Abdul Aziz yang bisa kamu tiru adalah …", ["bersikap adil dan hidup sederhana", "hidup bermewah-mewahan", "memaksakan kehendak", "mementingkan keluarga sendiri"], 0, "Ia mengembalikan harta yang bukan haknya ke kas negara."]
+    ],
+    essays: [
+      {
+        q: "Jelaskan pengertian sujud syukur, sebab-sebabnya, dan hikmahnya!",
+        a: "<b>Pengertian:</b> sujud syukur adalah sujud yang dilakukan sebagai tanda terima kasih kepada Allah.<br><b>Sebab:</b> (1) mendapat nikmat, misalnya lulus ujian atau juara lomba; (2) terhindar dari musibah, misalnya selamat dari kecelakaan.<br><b>Hikmah:</b> menyadari bahwa semua nikmat berasal dari Allah, menjauhkan diri dari sifat sombong, dan menambah rasa syukur."
+      },
+      {
+        q: "Tuliskan ketentuan (tata cara) dan bacaan sujud syukur!",
+        a: "<b>Ketentuan:</b> dilakukan di luar salat, hukumnya sunah, dan dianjurkan dalam keadaan suci serta menghadap kiblat.<br><b>Tata cara:</b> niat, takbir, sujud satu kali sambil membaca doa, lalu bangun dan duduk. Sebagian ulama mencukupkan tanpa salam.<br><b>Bacaan yang umum diajarkan:</b> “Subhanallah walhamdulillah wa la ilaha illallah wallahu akbar” (Maha Suci Allah, segala puji bagi Allah, tiada Tuhan selain Allah, Allah Maha Besar).<br><i>Kalau buku atau gurumu memakai bacaan lain, hafalkan versi dari guru.</i>"
+      },
+      {
+        q: "Jelaskan pengertian sujud sahwi dan sebab-sebab dilakukannya!",
+        a: "<b>Pengertian:</b> sujud sahwi adalah sujud yang dilakukan karena lupa atau ada kekurangan dalam salat.<br><b>Sebab:</b> (1) kekurangan rakaat atau rukun, misalnya lupa tasyahud awal; (2) kelebihan rakaat, misalnya salat Zuhur jadi lima rakaat; (3) ragu-ragu tentang jumlah rakaat, lalu mengambil jumlah yang paling sedikit."
+      },
+      {
+        q: "Tuliskan ketentuan (tata cara) dan bacaan sujud sahwi!",
+        a: "<b>Ketentuan:</b> dilakukan di dalam salat, setelah tasyahud akhir sebelum salam (boleh juga setelah salam menurut sebagian ulama), sebanyak dua kali sujud dengan duduk di antara dua sujud, lalu salam.<br><b>Bacaan:</b> “Subhana man la yanamu wa la yashu” (Maha Suci Allah yang tidak tidur dan tidak lupa).<br><b>Hikmah:</b> mengajarkan bahwa manusia bisa lupa dan Islam memberi cara untuk memperbaikinya."
+      },
+      {
+        q: "Apa perbedaan sujud syukur, sujud sahwi, dan sujud tilawah?",
+        a: "<b>Sujud syukur:</b> karena mendapat nikmat atau terhindar dari musibah. Dilakukan di luar salat.<br><b>Sujud sahwi:</b> karena lupa atau ada kekurangan dalam salat. Dilakukan di dalam salat, dua kali sujud.<br><b>Sujud tilawah:</b> karena membaca atau mendengar ayat sajdah. Bisa di dalam atau di luar salat."
+      }
+    ]
+  },
+
+  ipa: {
+    title: "Simulasi UAS IPA",
+    note: "45 soal dari 23 butir kisi-kisi, kebanyakan dua soal per butir.",
+    q: [
+      ["Langkah metode ilmiah", "Urutan langkah metode ilmiah yang benar adalah …", ["merumuskan masalah – membuat hipotesis – melakukan percobaan – menganalisis data – menarik kesimpulan", "membuat hipotesis – merumuskan masalah – menarik kesimpulan – melakukan percobaan", "melakukan percobaan – merumuskan masalah – membuat hipotesis – menarik kesimpulan", "menarik kesimpulan – melakukan percobaan – membuat hipotesis – merumuskan masalah"], 0, "Masalah → hipotesis → percobaan → analisis → kesimpulan."],
+      ["Langkah metode ilmiah", "Dugaan sementara yang akan diuji kebenarannya melalui percobaan disebut …", ["hipotesis", "kesimpulan", "teori", "variabel"], 0, "Hipotesis."],
+      ["Cabang ilmu IPA", "Cabang IPA yang mempelajari makhluk hidup disebut …", ["biologi", "fisika", "kimia", "geologi"], 0, "Bio = hidup."],
+      ["Cabang ilmu IPA", "Cabang IPA yang mempelajari susunan zat dan perubahannya disebut …", ["kimia", "biologi", "astronomi", "fisika"], 0, "Kimia."],
+      ["Nama dan fungsi alat laboratorium", "Alat laboratorium yang digunakan untuk mengukur volume zat cair adalah …", ["gelas ukur", "tabung reaksi", "pembakar spiritus", "kaki tiga"], 0, "Gelas ukur."],
+      ["Nama dan fungsi alat laboratorium", "Alat untuk memanaskan larutan di laboratorium adalah …", ["pembakar spiritus", "pipet tetes", "mikroskop", "corong"], 0, "Pembakar spiritus (bunsen)."],
+      ["Simbol bahan kimia", "Simbol bergambar tengkorak dengan dua tulang bersilang pada botol bahan kimia berarti bahan itu …", ["beracun", "mudah terbakar", "mudah meledak", "korosif"], 0, "Toxic."],
+      ["Simbol bahan kimia", "Simbol bergambar cairan yang merusak tangan dan logam berarti bahan itu bersifat …", ["korosif", "radioaktif", "beracun", "mudah terbakar"], 0, "Korosif = merusak jaringan dan benda."],
+      ["Perubahan wujud zat", "Kapur barus yang lama-lama habis di dalam lemari mengalami perubahan wujud …", ["menyublim", "menguap", "mencair", "membeku"], 0, "Padat langsung menjadi gas."],
+      ["Perubahan wujud zat", "Perubahan wujud yang melepaskan kalor adalah …", ["membeku", "mencair", "menguap", "menyublim"], 0, "Membeku, mengembun, mengkristal melepas kalor."],
+      ["Perubahan fisika dan kimia", "Perubahan fisika adalah perubahan zat yang …", ["tidak menghasilkan zat baru", "menghasilkan zat baru", "selalu menghasilkan gas", "tidak bisa kembali"], 0, "Contoh: es mencair, gula larut."],
+      ["Perubahan fisika dan kimia", "Contoh perubahan kimia adalah …", ["besi berkarat", "lilin meleleh", "air menjadi es", "kertas digunting"], 0, "Karat adalah zat baru."],
+      ["Alat ukur panjang dan massa", "Alat ukur panjang dengan ketelitian 0,1 mm adalah …", ["jangka sorong", "mistar", "mikrometer sekrup", "meteran kain"], 0, "Mistar 1 mm, jangka sorong 0,1 mm, mikrometer 0,01 mm."],
+      ["Alat ukur panjang dan massa", "Alat untuk mengukur massa benda di laboratorium adalah …", ["neraca", "dinamometer", "termometer", "gelas ukur"], 0, "Neraca (ohaus)."],
+      ["Besaran pokok dan turunan", "Kelompok besaran pokok adalah …", ["panjang, massa, waktu", "luas, volume, kecepatan", "massa, gaya, tekanan", "waktu, kecepatan, percepatan"], 0, "Tujuh besaran pokok: panjang, massa, waktu, suhu, kuat arus, jumlah zat, intensitas cahaya."],
+      ["Besaran pokok dan turunan", "Berikut yang termasuk besaran turunan adalah …", ["kecepatan", "suhu", "massa", "kuat arus"], 0, "Kecepatan = panjang : waktu."],
+      ["Persamaan konversi skala termometer", "Perbandingan skala C : R : (F − 32) adalah …", ["5 : 4 : 9", "4 : 5 : 9", "9 : 5 : 4", "5 : 9 : 4"], 0, "Dari rentang 100 : 80 : 180."],
+      ["Persamaan konversi skala termometer", "Rumus mengubah suhu Celsius ke Kelvin adalah …", ["K = C + 273", "K = C − 273", "K = 9/5 C + 32", "K = 4/5 C"], 0, "Titik beku air 0 °C = 273 K."],
+      ["Konversi skala termometer", "Suhu 25 °C sama dengan … °F", ["77", "45", "57", "13"], 0, "9/5 × 25 + 32 = 45 + 32 = 77."],
+      ["Konversi skala termometer", "Suhu 50 °C sama dengan … °R", ["40", "62,5", "90", "122"], 0, "4/5 × 50 = 40."],
+      ["Perpindahan kalor", "Sendok logam yang dicelupkan ke teh panas ujungnya ikut terasa panas. Perpindahan kalor ini disebut …", ["konduksi", "konveksi", "radiasi", "isolasi"], 0, "Lewat zat padat tanpa zatnya ikut berpindah."],
+      ["Perpindahan kalor", "Kehangatan api unggun yang terasa dari jarak beberapa meter terjadi karena …", ["radiasi", "konduksi", "konveksi", "evaporasi"], 0, "Radiasi tidak butuh perantara."],
+      ["Jenis bahan menurut daya hantar kalor", "Bahan yang mudah menghantarkan kalor disebut …", ["konduktor", "isolator", "semikonduktor", "radiator"], 0, "Contoh: besi, tembaga, aluminium."],
+      ["Jenis bahan menurut daya hantar kalor", "Gagang panci dibuat dari plastik atau kayu karena bahan tersebut …", ["isolator kalor", "konduktor kalor", "mudah memuai", "mudah berkarat"], 0, "Isolator menghambat kalor sampai ke tangan."],
+      ["Menghitung jumlah kalor", "Air 2 kg dipanaskan dari 25 °C menjadi 75 °C. Kalor jenis air 4.200 J/kg°C. Kalor yang diperlukan …", ["420.000 J", "210.000 J", "42.000 J", "630.000 J"], 0, "Q = 2 × 4.200 × 50 = 420.000 J."],
+      ["Menghitung jumlah kalor", "Rumus kalor untuk menaikkan suhu benda adalah …", ["Q = m × c × ΔT", "Q = m × g × h", "Q = F × s", "Q = ρ × V"], 0, "m massa, c kalor jenis, ΔT kenaikan suhu."],
+      ["Perpindahan dan jarak", "Theo berjalan 8 m ke timur, lalu 3 m ke barat. Jarak yang ditempuh Theo adalah …", ["11 m", "5 m", "8 m", "3 m"], 0, "Jarak = panjang lintasan total, 8 + 3."],
+      ["Perpindahan dan jarak", "Dari soal yang sama (8 m ke timur lalu 3 m ke barat), perpindahan Theo adalah …", ["5 m ke timur", "11 m ke timur", "5 m ke barat", "11 m ke barat"], 0, "Perpindahan = posisi akhir − posisi awal, 8 − 3 ke arah timur."],
+      ["Menghitung percepatan", "Mobil bergerak dari diam hingga kecepatannya 20 m/s dalam 5 sekon. Percepatannya …", ["4 m/s²", "100 m/s²", "25 m/s²", "15 m/s²"], 0, "a = (20 − 0) : 5."],
+      ["Menghitung percepatan", "Sepeda melaju 10 m/s lalu direm hingga berhenti dalam 2 sekon. Percepatannya …", ["−5 m/s²", "5 m/s²", "−20 m/s²", "20 m/s²"], 0, "a = (0 − 10) : 2 = −5 (perlambatan)."],
+      ["Pemuaian", "Pemuaian adalah …", ["bertambahnya ukuran benda karena kenaikan suhu", "berkurangnya massa benda karena dipanaskan", "perubahan warna benda", "perubahan zat menjadi zat baru"], 0, "Panjang, luas, atau volume bertambah."],
+      ["Pemuaian", "Di antara zat padat, cair, dan gas, yang paling besar pemuaiannya adalah …", ["gas", "padat", "cair", "sama besar"], 0, "Partikel gas paling bebas."],
+      ["GLB dan GLBB dalam kehidupan sehari-hari", "Contoh gerak lurus berubah beraturan (GLBB) dipercepat adalah …", ["buah kelapa jatuh dari pohon", "mobil melaju dengan kecepatan tetap di jalan tol", "kereta yang berhenti di stasiun", "eskalator yang bergerak stabil"], 0, "Kecepatannya bertambah karena gravitasi."],
+      ["GLB dan GLBB dalam kehidupan sehari-hari", "Ciri gerak lurus beraturan (GLB) adalah …", ["kecepatannya tetap dan lintasannya lurus", "kecepatannya terus bertambah", "kecepatannya terus berkurang", "lintasannya melingkar"], 0, "Percepatan nol."],
+      ["Menghitung kecepatan", "Sepeda menempuh jarak 900 m dalam 3 menit. Kecepatannya …", ["5 m/s", "300 m/s", "15 m/s", "2.700 m/s"], 0, "3 menit = 180 s. 900 : 180 = 5 m/s."],
+      ["Menghitung kecepatan", "Bus menempuh 240 km dalam 4 jam. Kecepatan rata-ratanya …", ["60 km/jam", "960 km/jam", "80 km/jam", "40 km/jam"], 0, "240 : 4."],
+      ["Rumus pemuaian", "Rumus pertambahan panjang pada pemuaian zat padat adalah …", ["Δl = l₀ × α × ΔT", "Δl = l₀ : α", "Δl = m × c × ΔT", "Δl = v × t"], 0, "l₀ panjang awal, α koefisien muai panjang, ΔT kenaikan suhu."],
+      ["Rumus pemuaian", "Batang besi panjangnya 100 cm dipanaskan dari 20 °C menjadi 70 °C. Koefisien muai panjang besi 0,000012 /°C. Pertambahan panjangnya …", ["0,06 cm", "0,6 cm", "0,0012 cm", "6 cm"], 0, "Δl = 100 × 0,000012 × 50 = 0,06 cm."],
+      ["Pemuaian dalam kehidupan sehari-hari", "Pemasangan kaca jendela diberi sedikit celah pada bingkainya agar …", ["kaca tidak pecah saat memuai", "udara bisa masuk", "kaca mudah dibersihkan", "kaca terlihat lebih bening"], 0, "Saat panas kaca memuai dan butuh ruang."],
+      ["Pemuaian dalam kehidupan sehari-hari", "Alat yang memanfaatkan keping bimetal adalah …", ["setrika listrik otomatis", "gelas ukur", "mikroskop", "neraca"], 0, "Bimetal melengkung saat panas dan memutus arus."],
+      ["Membuat kesimpulan", "Theo menanam kacang hijau di dua pot. Pot A di tempat terang, pot B di tempat gelap. Setelah seminggu, tanaman di pot B lebih tinggi tetapi pucat dan kurus. Kesimpulan yang tepat adalah …", ["tanaman di tempat gelap tumbuh lebih cepat tetapi tidak sehat", "cahaya tidak berpengaruh pada pertumbuhan", "tanaman di tempat terang mati", "semua tanaman tumbuh sama"], 0, "Gejala etiolasi: di tempat gelap tumbuh memanjang tetapi pucat."],
+      ["Membuat kesimpulan", "Es batu dalam gelas di meja mencair lebih cepat daripada es batu di dalam termos. Kesimpulan yang tepat adalah …", ["termos menghambat perpindahan kalor dari luar", "es di termos lebih dingin dari awal", "gelas menghasilkan panas sendiri", "termos membuat es bertambah banyak"], 0, "Termos dirancang sebagai isolator."],
+      ["Bahan konduktor dan isolator", "Kelompok bahan yang termasuk konduktor adalah …", ["besi, tembaga, aluminium", "kayu, plastik, karet", "kain, kertas, gabus", "kaca, kayu, plastik"], 0, "Logam umumnya konduktor."],
+      ["Menghitung jarak GLB", "Mobil bergerak lurus beraturan dengan kecepatan 15 m/s selama 20 sekon. Jarak yang ditempuh …", ["300 m", "35 m", "75 m", "150 m"], 0, "s = v × t = 15 × 20."],
+      ["Menghitung jarak GLB", "Theo bersepeda dengan kecepatan tetap 12 km/jam selama 30 menit. Jarak yang ditempuh …", ["6 km", "24 km", "360 km", "12 km"], 0, "30 menit = 0,5 jam. 12 × 0,5 = 6 km."]
+    ]
+  }
+};

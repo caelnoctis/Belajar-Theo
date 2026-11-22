@@ -421,7 +421,7 @@ EXT(7, "indo", {
     prosedur: { q: [
       ["“Masukkan 2 sendok gula ke dalam gelas.” Kata bilangan dalam kalimat itu adalah …", ["2", "masukkan", "gelas", "gula"], 0, "Menunjukkan jumlah."],
       ["Judul teks prosedur biasanya diawali kata …", ["cara", "mengapa", "siapa", "kapan"], 0, "Misal: Cara Membuat Layang-Layang."],
-      ["Teks prosedur yang langkahnya boleh dibolak-balik disebut prosedur …", ["kompleks bertingkat", "sederhana", "protokol", "kompleks"], 0, "Protokol: urutan tidak mutlak."],
+      ["Teks prosedur yang langkahnya boleh dibolak-balik disebut prosedur …", ["protokol", "sederhana", "kompleks", "naratif"], 0, "Protokol: urutan langkahnya tidak mutlak."],
       ["Kalimat yang bukan kalimat perintah adalah …", ["Air itu sudah mendidih.", "Tuangkan air ke gelas.", "Aduk sampai rata.", "Jangan diisi terlalu penuh."], 0, "Itu kalimat berita."],
       ["Fungsi bagian “bahan dan alat” adalah …", ["memberi tahu kebutuhan sebelum mulai", "menceritakan pengalaman", "menyimpulkan hasil", "membujuk pembaca"], 0, "Persiapan."]
     ]},
