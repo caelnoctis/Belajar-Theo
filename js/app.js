@@ -414,7 +414,7 @@
     if (!U || !U.essays || !U.essays.length) return "";
     return `<section class="panel paper"><div class="read" style="max-width:760px;margin:0 auto">
       <h2>Latihan esai</h2>
-      <p>Materi sujud syukur dan sujud sahwi keluar sebagai soal esai. Jawab dulu di kertas atau dalam hati, baru buka contoh jawabannya.</p>
+      <p>${U.essayNote || "Materi sujud syukur dan sujud sahwi keluar sebagai soal esai."} Jawab dulu di kertas, baru buka contoh jawabannya.</p>
       ${U.essays.map((e, i) => `<div class="example"><span class="mono">Esai ${i + 1}</span><div><b>${e.q}</b></div>
         <button type="button" class="pill light reveal-btn" data-reveal>Lihat contoh jawaban</button><div class="ans" hidden>${e.a}</div></div>`).join("")}
     </div></section>`;
