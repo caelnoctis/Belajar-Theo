@@ -428,7 +428,7 @@
       const btn = DB.draft[hk] ? `<a class="pill lemon" href="${go}">Lanjutkan</a>`
         : rec ? `<span class="btnrow"><a class="pill" href="${go}">Lihat hasil</a><button type="button" class="pill light" data-fresh="${hk}" data-go="${go}">Kerjakan ulang</button></span>`
         : `<a class="pill" href="${go}">Mulai simulasi</a>`;
-      return `<div class="testcard uascard"><span class="mono">Kisi-kisi guru · ${U.q.length} soal${U.essays ? " + esai" : ""}</span>
+      return `<div class="testcard uascard"><span class="mono">Kisi-kisi guru · ${U.q.length} soal${U.essays ? " + " + U.essays.length + " esai" : ""}</span>
         <h3>${esc(s.name)}</h3>
         ${rec ? `<div class="score-big">${rec.score}</div><p class="mono">${rec.right}/${rec.total} benar · ${fmtDate(rec.at)}</p>` : `<p>${esc(U.note)}</p>`}
         ${btn}</div>`;
